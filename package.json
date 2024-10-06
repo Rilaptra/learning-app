@@ -1,5 +1,5 @@
 {
-  "name": "fullstack-learning-app",
+  "name": "ebook-creation-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -51,17 +51,14 @@
     "eslint-config-next": "13.5.1",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.446.0",
-    "mongodb": "^5.7.0",
+    "mongoose": "^7.5.0",
     "next": "13.5.1",
-    "next-auth": "^4.22.3",
     "next-themes": "^0.3.0",
     "postcss": "8.4.30",
     "react": "18.2.0",
-    "react-beautiful-dnd": "^13.1.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.53.0",
-    "react-latex": "^2.0.0",
     "react-resizable-panels": "^2.1.3",
     "recharts": "^2.12.7",
     "sonner": "^1.5.0",
@@ -71,9 +68,5 @@
     "typescript": "5.2.2",
     "vaul": "^0.9.9",
     "zod": "^3.23.8"
-  },
-  "devDependencies": {
-    "@types/react-beautiful-dnd": "^13.1.4",
-    "@types/react-latex": "^2.0.0"
   }
 }
