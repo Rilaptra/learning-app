@@ -333,7 +333,10 @@ export default function EditBook({ params }: { params: { id: string } }) {
               {subChapters[chapter._id]?.map((subChapter) => (
                 <Dialog key={subChapter._id}>
                   <DialogTrigger asChild>
-                    <Button variant="outline" className="w-full mb-2">
+                    <Button
+                      variant="outline"
+                      className="w-full overflow-scroll text-center mb-2"
+                    >
                       {subChapter.title}
                     </Button>
                   </DialogTrigger>
