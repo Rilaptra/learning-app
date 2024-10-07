@@ -1,19 +1,26 @@
-import mongoose, { Schema, Document } from 'mongoose';
-
-export interface ISubChapter extends Document {
+import mongoose, { Model } from "mongoose";
+interface ISubChapter extends mongoose.Document {
   title: string;
-  chapterId: mongoose.Types.ObjectId;
+  chapterId: mongoose.Schema.Types.ObjectId;
   order: number;
   content: string;
   createdAt: Date;
   updatedAt: Date;
 }
-
-const SubChapterSchema: Schema = new Schema({
+const SubChapterSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  chapterId: { type: Schema.Types.ObjectId, ref: 'Chapter', required: true },
+  chapterId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Chapter",
+    required: true,
+  },
   order: { type: Number, required: true },
-  content: { type: String, default: '' },
-}, { timestamps: true });
+  content: { type: String, default: "" },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
 
-export default mongoose.models.SubChapter || mongoose.model<ISubChapter>('SubChapter', SubChapterSchema);
+const SubChapter: Model<ISubChapter> =
+  mongoose.models.SubChapter || mongoose.model("SubChapter", SubChapterSchema);
+
+export default SubChapter;

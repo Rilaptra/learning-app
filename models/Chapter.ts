@@ -1,17 +1,22 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose from "mongoose";
 
-export interface IChapter extends Document {
+interface IChapter extends mongoose.Document {
   title: string;
-  bookId: mongoose.Types.ObjectId;
+  bookId: string;
   order: number;
   createdAt: Date;
   updatedAt: Date;
 }
 
-const ChapterSchema: Schema = new Schema({
+const ChapterSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  bookId: { type: Schema.Types.ObjectId, ref: 'Book', required: true },
+  bookId: { type: mongoose.Schema.Types.ObjectId, ref: "Book", required: true },
   order: { type: Number, required: true },
-}, { timestamps: true });
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
 
-export default mongoose.models.Chapter || mongoose.model<IChapter>('Chapter', ChapterSchema);
+const Chapter: mongoose.Model<IChapter> =
+  mongoose.models.Chapter || mongoose.model("Chapter", ChapterSchema);
+
+export default Chapter;

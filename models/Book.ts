@@ -1,15 +1,20 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose from "mongoose";
 
-export interface IBook extends Document {
+interface IBook extends mongoose.Document {
   title: string;
   author: string;
   createdAt: Date;
   updatedAt: Date;
 }
 
-const BookSchema: Schema = new Schema({
+const BookSchema = new mongoose.Schema({
   title: { type: String, required: true },
   author: { type: String, required: true },
-}, { timestamps: true });
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
 
-export default mongoose.models.Book || mongoose.model<IBook>('Book', BookSchema);
+const Book: mongoose.Model<IBook> =
+  mongoose.models.Book || mongoose.model("Book", BookSchema);
+
+export default Book;

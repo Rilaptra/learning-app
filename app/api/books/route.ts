@@ -11,7 +11,6 @@ export async function GET() {
 export async function POST(request: Request) {
   const { title, author } = await request.json();
   await dbConnect();
-  const book = new Book({ title, author });
-  await book.save();
+  const book = await Book.create({ title, author });
   return NextResponse.json(book, { status: 201 });
 }

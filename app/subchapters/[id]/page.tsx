@@ -60,7 +60,7 @@ export default function SubChapterPage({ params }: { params: { id: string } }) {
           placeholder="Enter subchapter title"
         />
         <Button onClick={updateSubChapter}>Update</Button>
-        <Button onClick={deleteSubChapter} variant="danger">
+        <Button onClick={deleteSubChapter} variant="destructive">
           Delete
         </Button>
       </div>
